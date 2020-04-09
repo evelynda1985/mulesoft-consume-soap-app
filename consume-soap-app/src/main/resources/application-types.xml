@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="addresult" format="json">
+      <types:shape format="weave" example="examples/addresult.json"><![CDATA[%dw 2.0
+
+type addresult = {| AddResult: Number {"typeId": "int"} |} {"example": "{\\\"AddResult\\\":35}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#f014c2f1-35ab-4701-89d3-0e185dd0fb24">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="addresult"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
